@@ -5,18 +5,15 @@
 
 ## How to install
 
-Inside your terminal
+#### Larave libraries
+composer install
 
-#### composer install
-to install laravel libraries, 
-and then
-#### php artisan jwt:secret
-to generate jwt secret key
+#### Generate JWT Secret
+php artisan jwt:secret
 
 ## How to run
 
-Inside your terminal
-#### php artisan serve
+php artisan serve
 
 ## Requirements
 
