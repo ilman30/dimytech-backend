@@ -8,13 +8,14 @@ password: 123456
 Inside your terminal
 
 #### composer install
-
+to install laravel libraries, 
+and then
 #### php artisan jwt:secret
+to generate jwt secret key
 
 ## How to run
 
 Inside your terminal
-
 #### php artisan serve
 
 ## Requirements
