@@ -1,7 +1,7 @@
 ## Login Example
 
-username: ilman30
-password: 123456
+- username: ilman30
+- password: 123456
 
 ## How to install
 
