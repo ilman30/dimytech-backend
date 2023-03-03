@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Product;
+namespace App\Http\Controllers\PaymentMethod;
 
 use App\Http\Controllers\Controller;
 use App\Models\PaymentMethod;
-use Exception;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class PaymentMethodController extends Controller
 {
     public function create(Request $request)
     {
@@ -16,22 +15,21 @@ class ProductController extends Controller
     public function read(Request $request)
     {
         $response = array();
-        $name = $request->name;
+        $product_name = $request->name;
         try {
-            $query = PaymentMethod::select('id', 'name')
-                ->where('name', 'like', '%' . $name . '%')
-                ->where('is_active', 1)
+            $query = PaymentMethod::select('id as product_id', 'name as product_name', 'price')
+                ->where('name', 'like', '%' . $product_name . '%')
                 ->orderBy('id', 'ASC')
                 ->get();
             $count = $query->count();
             if ($count == 0) {
                 $response['status'] = 0;
-                $response['message'] = 'Payment method not found!';
+                $response['message'] = 'Products not found!';
                 $response['count'] = $count;
                 $code = 200;
             } else {
                 $response['status'] = 0;
-                $response['message'] = 'Payment method found!';
+                $response['message'] = 'Products found!';
                 $response['count'] = $count;
                 $response['data'] = $query;
                 $code = 200;

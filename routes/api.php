@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Order\OrderController;
+use App\Http\Controllers\PaymentMethod\PaymentMethodController;
+use App\Http\Controllers\Product\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +22,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 $router->group(['prefix' => 'v1'], function () use ($router) {
+    Route::group(['prefix' => 'product'], function () {
+        Route::get('read',  [ProductController::class, 'read']);
+    });
+    Route::group(['prefix' => 'payment-method'], function () {
+        Route::get('read',  [PaymentMethodController::class, 'read']);
+    });
     Route::group(['prefix' => 'order'], function () {
         Route::post('create',  [OrderController::class, 'create']);
     });
